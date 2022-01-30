@@ -35,11 +35,63 @@ The data comes from the past Kaggle competition “Challenges in Representation 
 
 # PROCESS OF PROJECT
 
-*It is found that for implementing this project four basic steps are required to be performed. i. Preprocessing ii. Face registration iii. Facial feature extraction iv. Emotion classification
-*Facial expression recognition is a process performed by humans or computers, which consists of:
-*Locating faces in the scene (e.g. in an image; this step is also referred to as face detection),
-*Extracting facial features from the detected face region (e.g., detecting the shape of facial components or describing the texture of the skin in a facial area; this step is referred to as facial feature extraction),
-*Analyzing the motion of facial features and/or the changes in the appearance of facial features and classifying this information into some facial-expression interpretation categories such as facial muscle activations like smile or frown, emotion (affect)categories like happiness or anger, attitude categories like (dis)liking or ambivalence, etc.(this step is also referred to as facial expression interpretation).
+Steps involved:
+
+
+1. Exploratory Data Analysis
+
+The dataset contains approximately 36K images. Each image corresponds to a facial expression in one of seven categories (0=Angry, 1=Disgust, 2=Fear, 3=Happy, 4=Sad, 5=Surprise, 6=Neutral). All the images are 48x48 pixels.
+
+2. Data Image generator
+
+Generate batches of tensor image data with real-time data augmentation.
+
+3. Building models
+
+We started our project with the concept of transfer learning i.e. using the pre-trained weights of ResNet50 for the training of the model and then fine-tuning them to increase the accuracy. Due to our dissatisfaction with this result, we switched to the Custom CNN model.
+
+4. Training the model
+
+We trained the model with 40 epochs and callback as early stopping and ReduceLROnPlateau to avoid overfitting and reach the global minima.
+
+5. Model Evaluation
+
+We evaluated the model using an accuracy plot and categorical cross-entropy loss and confusion matrix to find out in which category the model has inadequate performance and among which category the model is getting confused
+
+6. Model Deployment
+
+We have created a front-end using Streamlit for web app and used streamlit-webrtc which helped to deal with real-time video streams. Image captured from the webcam is sent to the VideoTransformer function to detect the emotion. Then this model was deployed on the Heroku platform with the help of buildpack-apt which is necessary to deploy the OpenCV model on Heroku.
+
+Deployment Link for Heroku -
+
+https://face-emotion-thisisraj.herokuapp.com/ 
+
+Deployment Link for Streamlit Share -
+
+https://share.streamlit.io/thisisraj57/face-emotion-recognition-system/main/app.py
+
+Models:
+
+Basic CNN architecture details:
+
+Input layer - The input layer in CNN should contain image data
+
+Convo layer - The convo layer is sometimes called the feature extractor layer because features of the image are get extracted within this layer
+
+Pooling layer - Pooling is used to reduce the dimensionality of each feature while retaining the most important information. It is used between two convolution layer
+
+Fully CL - Fully connected layer involves weights, biases, and neurons. It connects neurons in one layer to neurons in another layer. It is used to classify images between different categories by training and placed before the output layer
+
+Output Layer - The output layer contains the label which is in the form of a one-hot encoded
+
+
+
+1. ResNet50:
+
+ResNet50 is a variant of the ResNet model which has 48 Convolution layers along with 1 MaxPool and 1 Average Pool layer. It has 3.8 x 10^9 Floating points operations.
+
+The ResNets were initially applied to the image recognition task but as mentioned in the paper that the framework can also be used for non-computer vision tasks to achieve better accuracy.
+
 
 
 # CONCLUSION
