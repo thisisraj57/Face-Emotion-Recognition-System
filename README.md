@@ -142,9 +142,15 @@ Deployment
 
 # CONCLUSION
 
-*We trained the neural network and we achieved the highest validation accuracy of 60.43%.
-*The Pre Trained Model didn't give appropriate results.
-*The application is able to detect face location and predict the right expression while checking it on a local webcam.
-*The front-end of the model was made using streamlit for webapp and running well on local webapp links.
-*Finally, we successfully deployed the Streamlit WebApp on Heroku and Streamlit share that runs on a web server.
-*Our Model can successfully detect face and predict emotion on live video feed as well as on an image.
+Conclusion
+
+We built the WebApp using streamlit and deployed it in Heroku and  Streamlit Sharing.
+
+The model which was created by a custom CNN model gave training accuracy of 74% and test accuracy of 60%.which is maximum from the rest of all four models we used in this project.
+
+We have also included the video of my WebApp working in Local. Local face detection helps us to evaluate the performance after every small change in the code cell.
+
+Codes, which we deployed are present in Github Repository.
+
+It was such an amazing and interesting project. We learned a lot from this. We did lots of experiments with respect to data set distribution for the model and saw the effects on the performance.
+
