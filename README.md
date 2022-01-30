@@ -129,6 +129,16 @@ The categorical cross-entropy loss function calculates the loss of an example by
 A confusion matrix, also known as an error matrix, is a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one (in unsupervised learning it is usually called a matching matrix). Each row of the matrix represents the instances in an actual class while each column represents the instances in a predicted class, or vice versa
 Our model is very good for predicting happy and surprised faces. However, it predicts quite poorly feared faces maybe because it confuses them with sad faces.it also gets confused between angry and disgusted faces.
 
+# Challenges
+
+Large	image dataset to handle.
+limited GPU access on Google colab notebook.
+Every training epoch takes too much time so experimenting with different data splits takes more time to give useful results.
+Hyperparameter tuning is very sensitive for these Neural  Network models. So we make changes very careful
+After seeing all the model scores we need to find the best model based on different matrix scores which is time-consuming because models take a lot of time to compute the result.
+Running webcam on Google Colab
+Deployment
+
 
 # CONCLUSION
 
