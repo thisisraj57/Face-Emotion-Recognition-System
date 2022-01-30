@@ -70,7 +70,7 @@ Deployment Link for Streamlit Share -
 
 https://share.streamlit.io/thisisraj57/face-emotion-recognition-system/main/app.py
 
-Models:
+# Models:
 
 Basic CNN architecture details:
 
@@ -84,14 +84,50 @@ Fully CL - Fully connected layer involves weights, biases, and neurons. It conne
 
 Output Layer - The output layer contains the label which is in the form of a one-hot encoded
 
-
-
 1. ResNet50:
 
 ResNet50 is a variant of the ResNet model which has 48 Convolution layers along with 1 MaxPool and 1 Average Pool layer. It has 3.8 x 10^9 Floating points operations.
 
 The ResNets were initially applied to the image recognition task but as mentioned in the paper that the framework can also be used for non-computer vision tasks to achieve better accuracy.
 
+We started with ResNet50 and added 2 FC layers and trained the model freezing all Conv layers except the last 4 and on the second run, we finetuned the model by unfreezing all the layers. And got an accuracy of 40 and 60% respectively.
+
+# Model evaluation:
+
+2. Convolutional Neural Network:
+
+CNN’s are powerful image processing, artificial intelligence (AI) that use deep learning to perform both generative and descriptive tasks, often using machine vision that includes image and video recognition and processing that is specifically designed to process pixel data.
+
+We define our CNN with the following global architecture:
+
+4 convolutional layers
+
+2 fully connected layers
+
+Also, we use some common techniques for each layer
+
+Batch normalization: improves the performance and stability of NNs by providing inputs with zero mean
+
+and unit variance. Dropout: reduces overfitting by randomly not updating the weights of some nodes.
+
+This helps prevent the NN from relying on one node in the layer too much.
+
+# Model performance:
+
+The model can be evaluated by various metrics such as:
+
+1. Accuracy
+
+Accuracy is the most intuitive performance measure and it is simply a ratio of correctly predicted observations to the total observations. One may think that, if we have high accuracy then our model is best. Yes, accuracy is a great measure but only when you have symmetric datasets where values of false positives and false negatives are almost the same. Therefore, you have to look at another parameter to evaluate the performance of your model. For our model, we have got 0.66 which means our model is approx. 66% accurate.
+
+2. Loss(categorical cross-entropy)
+
+The categorical cross-entropy loss function calculates the loss of an example by computing the following sum:
+
+3. Confusion Matrix (Normalized)
+
+A confusion matrix, also known as an error matrix, is a specific table layout that allows visualization of the performance of an algorithm, typically a supervised learning one (in unsupervised learning it is usually called a matching matrix). Each row of the matrix represents the instances in an actual class while each column represents the instances in a predicted class, or vice versa
+Our model is very good for predicting happy and surprised faces. However, it predicts quite poorly feared faces maybe because it confuses them with sad faces.it also gets confused between angry and disgusted faces.
 
 
 # CONCLUSION
